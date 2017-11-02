@@ -30,6 +30,7 @@ RUN ["cross-build-end"]
 
 COPY ansible-playbook-wrapper /usr/local/bin/
 
+ONBUILD  RUN  ["cross-build-start"]
 ONBUILD  RUN  DEBIAN_FRONTEND=noninteractive  apt-get update   && \
               echo "===> Updating TLS certificates..."         && \
               apt-get install -y openssl ca-certificates
